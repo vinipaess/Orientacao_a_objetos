@@ -1,9 +1,34 @@
 <?php
 
+require_once 'Funcionarios.php';
 require_once 'Humano.php';
 require_once 'Lemure.php';
 require_once 'Peixe.php';
 require_once 'Tucano.php';
+
+function lerDadosFuncionario() {
+    $nome = readline("Digite o nome do funcionário: ");
+    $idade = readline("Digite a idade do funcionário: ");
+    $endereco = readline("Digite o endereço do funcionário: ");
+    $contato = readline("Digite o contato do funcionário: ");
+    $cargo = readline("Digite o cargo do funcionário (balconista, veterinário(a), vendedor(a)): ");
+    $salario = readline("Digite o salário do funcionário: ");
+    return new Funcionarios($nome, $idade, $endereco, $contato, $cargo, $salario);
+}
+echo "Insira os dados do primeiro funcionário:\n";
+$funcionario1 = lerDadosFuncionario();
+
+echo "\nInsira os dados do segundo funcionário:\n";
+$funcionario2 = lerDadosFuncionario();
+
+echo "\nInsira os dados do terceiro funcionário:\n";
+$funcionario3 = lerDadosFuncionario();
+
+echo "\nInformações dos Funcionários:\n";
+echo $funcionario1->getInfoFuncionario() . "\n";
+echo $funcionario2->getInfoFuncionario() . "\n";
+echo $funcionario3->getInfoFuncionario() . "\n";
+
 
 function lerDadosHumanos(){
     $nome=readline("Digite seu nome: ");
@@ -24,9 +49,6 @@ $humano3= lerDadosHumanos();
 $lemure = new lemure('zoobomafoo', 'lémur-de-cauda-anelada', '2 mãos e 2 pés', 'branco', '2kg', '46cm','$humano1');
 $peixe =  new peixe('robalo', 'carpa', '0', 'dourado', '15kg', '55cm','$humano2');
 $tucano = new tucano('moacir', 'Tucano-de-peito-amarelo ', '2', 'verde-amarelada', '400g', '42cm','$humano3');
-
-
-
 
 echo $lemure->getInfo();
 echo "\n";
